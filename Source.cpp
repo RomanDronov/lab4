@@ -36,7 +36,7 @@ int main() {
 	for (int i = 0; i < word + 1; i++) {
 		cout << end_coor[i] << " ";
 }
-// when the word start
+// when the word starts (not working) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	star_coor[0] = 0;
 	for (int i = 1; i < word + 1; i++) {
 		for (int j = 0; j < word + 1; j++) {
