@@ -17,6 +17,7 @@ int main() {
 	}
 	int *star_coor = new int[word + 1];
 	int *end_coor = new int[word + 1];
+	int *length = new int[word + 1];
 	cout << "word" << word << endl;
 	int a = 0;
 	//looking for the ccordinates of the word
@@ -36,7 +37,7 @@ int main() {
 	for (int i = 0; i < word + 1; i++) {
 		cout << end_coor[i] << " ";
 }
-// when the word starts (not working) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// getting when the word starts
 	star_coor[0] = 0;
 	int j = 0;
 	for (int i = 1; i < word + 1; i++) {
@@ -46,6 +47,13 @@ int main() {
 	cout << "mass2";
 	for (int i = 0; i < word + 1; i++) {
 		cout << star_coor[i] << " ";
+	}
+	for (int i = 0; i < word + 1; i++) {
+		length[i] = end_coor[i] - star_coor[i];
+	}
+	cout << "lenght" << " ";
+	for (int i = 0;i < word + 1; i++) {
+		cout << length[i] << " ";
 	}
 //	cout << "number of words" << word << endl;
 	for (int i = 0; i < strlen(str); i++) {
@@ -62,6 +70,7 @@ int main() {
 	cout << endl;
 	delete star_coor;
 	delete end_coor;
+	delete length;
 	system("pause");
 	return 0;
 }
