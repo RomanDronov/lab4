@@ -38,14 +38,14 @@ int main() {
 }
 // when the word starts (not working) !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	star_coor[0] = 0;
+	int j = 0;
 	for (int i = 1; i < word + 1; i++) {
-		for (int j = 0; j < word + 1; j++) {
 			star_coor[i] = end_coor[j] + 1;
+			j++;
 		}
-	}
 	cout << "mass2";
 	for (int i = 0; i < word + 1; i++) {
-		cout << star_coor << " ";
+		cout << star_coor[i] << " ";
 	}
 //	cout << "number of words" << word << endl;
 	for (int i = 0; i < strlen(str); i++) {
