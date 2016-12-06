@@ -55,6 +55,23 @@ int main() {
 	for (int i = 0;i < word + 1; i++) {
 		cout << length[i] << " ";
 	}
+	int max = 0;
+	int max_pos;
+	for (int i = 0; i < word + 1; i++) {
+		if (length[i] > max) {
+			max = length[i];
+			max_pos = i;
+		}
+	}
+	int min = length[0];
+	int min_pos;
+	for (int i = 0; i < word + 1; i++) {
+		if (length[i]<min) {
+			min = length[i];
+			min_pos = i;
+		}
+	}
+	cout << "min pos" << min_pos << endl;
 //	cout << "number of words" << word << endl;
 	for (int i = 0; i < strlen(str); i++) {
 		if (str[i] == ' ') {
