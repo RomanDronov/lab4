@@ -3,6 +3,7 @@
 using namespace std;
 int main() {
 	char str[300];
+	char str2[300];
 	gets_s(str);
 	//cout << str << endl;
 	int word = 0;
@@ -12,12 +13,13 @@ int main() {
 			word++;
 		}
 	}
+	char *result = new char[strlen(str)];
 	int *star_coor = new int[word + 1];
 	int *end_coor = new int[word + 1];
 	int *length = new int[word + 1];
 	int a = 0;
-	//looking for the ccordinates of the word
-	for (int i = 0; i < strlen(str)+2; i++) {
+	//looking for the ccordinates of the word(strtok_s)
+	for (int i = 0; i < strlen(str) + 2; i++) {
 		if (str[i] == ' ') {
 			end_coor[a] = i;
 			a++;
@@ -28,14 +30,14 @@ int main() {
 			break;
 		}
 	}
-// getting when the word starts
+	// getting when the word starts
 	star_coor[0] = 0;
 	int j = 0;
 	for (int i = 1; i < word + 1; i++) {
-			star_coor[i] = end_coor[j] + 1;
-			j++;
-		}
-	/*cout << "star coor1 ";
+		star_coor[i] = end_coor[j] + 1;
+		j++;
+	}
+	cout << "star coor1 ";
 	for (int i = 0; i < word + 1; i++) {
 		cout << star_coor[i] << " ";
 	}
@@ -44,14 +46,14 @@ int main() {
 	for (int i = 0; i < word + 1; i++) {
 		cout << end_coor[i] << " ";
 	}
-	cout << endl;*/
+	cout << endl;
 	for (int i = 0; i < word + 1; i++) {
 		length[i] = end_coor[i] - star_coor[i];
 	}
-	/*cout << "lenght" << " ";
+	cout << "lenght" << " ";
 	for (int i = 0;i < word + 1; i++) {
 		cout << length[i] << " ";
-	}*/
+	}
 	int max = 0;
 	int max_pos;
 	for (int i = 0; i < word + 1; i++) {
@@ -60,14 +62,20 @@ int main() {
 			max_pos = i;
 		}
 	}
-	int min = length[0];
+	int min = length[1];
 	int min_pos;
 	for (int i = 0; i < word + 1; i++) {
-		if (length[i]<min) {
+		if (length[i] < min) {
 			min = length[i];
 			min_pos = i;
 		}
 	}
+	/*cout << "length" << endl;
+	for (int p = 0; p < word + 1; p++) {
+		cout << length[p] << " ";
+	}
+	cout << "max pos " << max_pos << endl << "min pos " << min_pos << endl;
+	system("pause");*/
 	int tmp = star_coor[max_pos];
 	star_coor[max_pos] = star_coor[min_pos];
 	star_coor[min_pos] = tmp;
@@ -87,13 +95,20 @@ int main() {
 	//вывод на экран
 	cout << "Your string has been modified: "<<endl;
 	int mass_size = 0;
+	int s = 0;
 	for (int p = 0; p < word + 1; p++) {
 		for (int i = star_coor[p]; i < end_coor[p]; i++) {
-			cout << str[i];
+				result[s] = str[i];
+				s++;
 		}
-		cout << " ";
+		result[s] = ' ';
+		s++;
 }
+	for (int i = 0; i < strlen(str); i++) {
+		cout << result[i];
+	}
 	cout << endl;
+	delete result;
 	delete star_coor;
 	delete end_coor;
 	delete length;
